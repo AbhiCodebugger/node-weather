@@ -67,25 +67,8 @@ app.get('/weather', (req,res)=>{
             return res.send({error})
         })
     })
-   
-    // res.send({
-    //     weather: 'Cloudy',
-    //     location: 'Patna, India',
-    //     address: req.query.address
-    // })
 })
 
-app.get('/products', (req,res)=>{
-    if(!req.query.search){
-        return res.send({
-           error: 'Enter any search term'
-        })
-    }
-    console.log(req.query)
-    res.send({
-        'product': []
-    })
-})
 
 app.get('/help/*',(req,res)=>{
     res.render('404',{
@@ -106,5 +89,5 @@ app.get('*', (req, res)=>{
 
 
 app.listen(port, () => {
-    console.log('Server is running on port' + port)
+    console.log('Server is running on port ' + port)
 })
