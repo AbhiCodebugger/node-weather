@@ -21,11 +21,11 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     //         return console.log('Unable to find the match')
     //     }
     //      console.log(result)
-    
+
     // })
-    db.collection('task').find({completed: false}).toArray((error,task)=>{
-        console.log(task)
-    })
+    // db.collection('task').find({completed: false}).toArray((error,task)=>{
+    //     console.log(task)
+    // })
     // db.collection('users').find({age: 26}).count((error,count)=>{
     //     console.log(count)
     // })
@@ -73,4 +73,24 @@ MongoClient.connect(connectionUrl, { useNewUrlParser: true }, (error, client) =>
     //         console.log(result);
     //     }
     // })
+    // db.collection('users').updateOne({_id: new ObjectID('63063cfde37126166d935a97')},{
+    //     $set:{
+    //         name: "Milang"
+    //     }
+    // }).then((result)=>{
+    //     console.log(result)
+    // }).catch((error)=>{
+    //     console.log(error)
+    // })
+    db.collection('task').updateMany({
+completed: true
+    }, {
+        $set: {
+            completed: false
+        }
+    }).then((task)=>{
+        console.log(task)
+    }).catch((error)=>{
+        console.log(error)
+    })
 })
